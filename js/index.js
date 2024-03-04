@@ -1,22 +1,22 @@
 const choiceArray = ["rock", "paper", "scissors"];
-let playerScore = 0; //global variable tracking player score
-let computerScore = 0; //global variable tracking computer score
-let currentRound = 0; //initializing rounds
+let playerScore = 0; 
+let computerScore = 0; 
+let currentRound = 0; 
 
 /**
- * computer that player plays against, randomly choses "rock", "paper", or "scissors"  from list
+ * generates a random number and utilizes to chose a string from array
  * @returns {[string]} returns a string that is "rock", "paper" or "scissors"
  */
-let getComputerChoice = () => {
+const getComputerChoice = () => {
     let choice = Math.floor(Math.random() * choiceArray.length);
     return choiceArray[choice];
 };
 
 /**
- * takes user input and processes it, returns a string of user input if valid
- * @returns {[string]} users input if it was "rock", "paper", or "scissors"
+ * takes user input and ensures it's of correct type
+ * @returns {[string]} user's input if it was "rock", "paper", or "scissors"
  */
-let getPlayerChoice = () => {
+const getPlayerChoice = () => {
    let choice;
    while(true){
     choice = prompt('choose "rock", "paper" or "scissors".').toLowerCase();
@@ -26,19 +26,19 @@ let getPlayerChoice = () => {
 };
 
 /**
- * Takes in choices of "rock", "paper", or "scissors" from user and computer and determines a winner
+ * Takes choices from player and computer and then determines winner based on choices
  * @param {[string] } playerChoice Input retrived by user must be. "rock", "paper", "scissors"
  * @param {[string]} computerChoice This is computer choice generated randomly. has to be "rock", "paper", or "scissors"
  * @returns {[string]} returns a string that informs user if they won, tie or lost
  */
-let processChoices = (playerChoice, computerChoice) => {
+const processChoices = (playerChoice, computerChoice) => {
 
     if(computerChoice === playerChoice) return `It was a tie, both chose ${playerChoice}!`;
 
     switch(playerChoice){
         case "rock":
             if(computerChoice === "paper") {
-                computerScore ++;
+                computerScore++;
                 return "You lost, Paper beats Rock!";
             }
             else {
@@ -47,7 +47,7 @@ let processChoices = (playerChoice, computerChoice) => {
             }
         case "paper":
             if(computerChoice === "scissors") {
-                computerScore ++;
+                computerScore++;
                 return "You lost, Scissors beats Paper!";
             }
             else {
@@ -56,7 +56,7 @@ let processChoices = (playerChoice, computerChoice) => {
             }
         case "scissors":
             if(computerChoice === "rock") {
-                computerScore ++;
+                computerScore++;
                 return "You lost, Rock beats Scissors!";
             }
             else {
@@ -68,17 +68,17 @@ let processChoices = (playerChoice, computerChoice) => {
 };
 
 /**
- * handles how the result of round will be displayed
+ * displays the result of player and computer choices and current game information
  * @param {[string]} results a string storing the results of the round between player and compuer
  */
-let displayResults = (results) => {
+const displayResults = (results) => {
     alert(`${results} \nCurrent score: [Player: ${playerScore}  Opponent: ${computerScore}] \nCurrent round:${currentRound} `);
 };
 
 /**
- * takes player input, generate computer output, compute results and display results to makes a round of rock paper scissoes
+ * combines prior functions to execute a singular round of rps between player and computer
  */
-let playRound = () => {
+const playRound = () => {
     displayResults(processChoices(getPlayerChoice(),getComputerChoice()));
 };
 
@@ -86,9 +86,9 @@ let playRound = () => {
  * initiates a game of rock paper scissors that lasts specified rounds
  * @param {[number]} rounds number of rounds to play game for
  */
-let playGame = (rounds) => {
+const playGame = (rounds) => {
     for(let i = 0; i < rounds; i++){
-        currentRound++
+        currentRound++;
         playRound();
     }
     if(playerScore > computerScore)alert("Congratulations! You've Won!");
