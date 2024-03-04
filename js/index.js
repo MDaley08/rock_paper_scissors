@@ -39,22 +39,21 @@ let processChoices = (playerChoice, computerChoice) => {
         case "rock":
             if(computerChoice === "paper") {
                 computerScore ++;
-                return "You lost, paper beats rock!";
+                return "You lost, Paper beats Rock!";
             }
             else {
                 playerScore++;
-                return "You Won, rock beats scissors"
+                return "You Won, Rock beats Scissors!";
             }
         case "paper":
-            if(computerChoice === "paper") {
+            if(computerChoice === "scissors") {
                 computerScore ++;
-                return "You lost, paper beats rock!";
+                return "You lost, Scissors beats Paper!";
             }
             else {
                 playerScore++;
-                return "You Won, rock beats scissors"
+                return "You Won, Paper beats Rock!"
             }
-            return computerChoice === "scissors" ? "You lost, scissors beats paper!" : "You won, paper beats rock!";
         case "scissors":
             if(computerChoice === "rock") {
                 computerScore ++;
@@ -94,7 +93,11 @@ let playGame = (rounds) => {
     }
     if(playerScore > computerScore)alert("Congratulations! You've Won!");
     else if(playerScore === computerScore)alert("This game was a tie!");
-    else alert("Sorry, you've lost this game!")
+    else alert("Sorry, you've lost this game!");
+    //resettiing global variable
+    playerScore = 0;
+    computerScore = 0;
+    currentRound = 0;
 };
 
 playGame(5);
