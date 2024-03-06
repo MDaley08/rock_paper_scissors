@@ -101,3 +101,5 @@ const playGame = (rounds) => {
 };
 
 playGame(5);
+
+//dom manipulation

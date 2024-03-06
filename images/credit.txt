@@ -1,0 +1,18 @@
+paper{
+    title: rock paper scissors icons
+    link: https://www.flaticon.com/free-icons/rock-paper-scissors
+    creator: iconading - Flaticon
+}
+
+rock{
+    title: fist icons
+    link: https://www.flaticon.com/free-icons/fist
+    creator: Voysla - Flaticon
+}
+
+scissors {
+    title: scissors icons
+    link: https://www.flaticon.com/free-icons/scissors
+    creatot: Cap Cool - Flaticon
+}
+
