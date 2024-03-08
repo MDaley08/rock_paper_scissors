@@ -1,40 +1,86 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(0.25turn, rgb(0, 21, 67),rgb(71, 120, 255),85%,rgb(0, 21, 67));
+    margin: 0;
+}
+
+#header{
+    color:rgba(255, 255, 255, 0.823);
+    background-color:   rgba(2, 12, 39, 0.349);
+    display: flex;
+    text-align:center;
     align-items: center;
-    min-width: 100vw;
-    min-height: 100vh;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-self: center;
+    border: 1px solid rgba(10, 10, 10, 0.1);
+    margin-top: 1%;
+    width: 55%;
+    border-radius: 15px;
+    padding: 20px 10px;
+    gap:10%;
+    backdrop-filter: blur(10.0px);
+
 }
 
 #results {
     text-align: center;
+    font-size: 40px;
+    padding: 20px 0;
 }
 
-#choices {
+#score-card{
+    color: rgba(0, 0, 0, 0.936);
     display: flex;
-}
-
-#choices div{
-    display: flex;
-    flex-direction: column;
-    height: 60px;
-    flex-basis: 100px;
-}
-
-#choices div{
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    padding: 0%;
-
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    font-size: 18px;
+    font-weight: 800;
 }
-
-#choices div img {
-    height: 80px;
-    width: 80px;
+.score {
+    background-color: rgba(255, 255, 255, 0.438);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
-
-#choices div h2 {
+#score-card p {
+    text-align: center;
     margin: 0;
+}
+.choices {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10%;
+}
+.choices img {
+    background-color:rgba(210, 210, 210, 0.4);
+    border-radius: 10px;
+    padding:20px;
+    max-width: 10%;
+    width: auto;
+    height: auto;
+}
+.choices.player img:hover {
+    transform: scale(1.1);
+    background-color:rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+.computer.choices img:focus {
+    background-color:rgba(255, 255, 255, 0.7);
+}
+.choices.player {
+    margin-bottom: 5%;
+}
+
+
+
+.score #value{
+    font-weight: 200;
 }
