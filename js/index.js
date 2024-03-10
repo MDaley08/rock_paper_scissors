@@ -3,15 +3,17 @@
 // };
 let playerScore = 0;
 let computerScore = 0;
-let rounds = 0;
-let computerCurrChoice;
+let numRounds = 1;
+
 //mapping choices to page element for adjustment using stings
 const computerChoiceMap = new Map();
 computerChoiceMap.set('rock', document.querySelector(".computer #rock"));
 computerChoiceMap.set('paper', document.querySelector(".computer #paper"));
 computerChoiceMap.set('scissors', document.querySelector(".computer #scissors"));
 
+//
 const results = document.getElementById("results");
+const round = document.querySelector(".round #value")
 const computerScoreString = document.querySelector(".computer.score #value")
 const playerScoreString = document.querySelector(".player.score #value")
 
@@ -32,10 +34,14 @@ const displayComputerChoice = (computerChoice) => {
     currChoice.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
 };
 
-const clearComputerChoice = () => {
-    let currDisplay;
-    currDisplay = computerChoiceMap.get(computerCurrChoice);
-    currDisplay.style.backgroundColor = 'rgba(210, 210, 210, 0.4)';
+const clearComputerChoices = () => {
+    rockTemp = computerChoiceMap.get('rock');
+    paperTemp = computerChoiceMap.get('paper');
+    scissorsTemp = computerChoiceMap.get('scissors');
+
+    rockTemp.style.backgroundColor = 'rgba(210, 210, 210, 0.4)'
+    paperTemp.style.backgroundColor = 'rgba(210, 210, 210, 0.4)'
+    scissorsTemp.style.backgroundColor = 'rgba(210, 210, 210, 0.4)'
 }
 
 const processChoice = (playerChoice,computerChoice) => {
@@ -77,15 +83,17 @@ const processChoice = (playerChoice,computerChoice) => {
                 break;
         }
     }
+    round.textContent = numRounds;
     //if rounds are 5 end game
-    if(rounds >= 5){
+    if(numRounds >= 5){
         if(playerScore > computerScore){
             results.textContent = "You Won!";
             computerScoreString.textContent = 0;
             playerScoreString.textContent = 0;
             playerScore = 0;
             computerScore = 0;
-            rounds = 0;
+            numRounds = 1;
+            round.textContent = '-';
             return;
         }
         else if( playerScore === computerScore){
@@ -94,7 +102,8 @@ const processChoice = (playerChoice,computerChoice) => {
             playerScoreString.textContent = 0;
             playerScore = 0;
             computerScore = 0;
-            rounds = 0;
+            numRounds = 1;
+            round.textContent = '-';
             return;
         }
         else {
@@ -103,19 +112,21 @@ const processChoice = (playerChoice,computerChoice) => {
             playerScoreString.textContent = 0;
             playerScore = 0;
             computerScore = 0;
-            rounds = 0;
+            numRounds = 1;
+            round.textContent = '-';
             return;
         }
     }
-    rounds++;
-    clearComputerChoice();
+    numRounds++;
+    clearComputerChoices();
     displayComputerChoice(computerChoice);
+
 
 };
 
 
 
-playerRock.addEventListener('click', () => processChoice('rock', computerCurrChoice = getComputerChoice()));
-playerPaper.addEventListener('click', () => processChoice('paper', computerCurrChoice = getComputerChoice()));
-playerScissors.addEventListener('click', () => processChoice('scissors', computerCurrChoice = getComputerChoice()));
+playerRock.addEventListener('click', () => processChoice('rock', getComputerChoice()));
+playerPaper.addEventListener('click', () => processChoice('paper', getComputerChoice()));
+playerScissors.addEventListener('click', () => processChoice('scissors', getComputerChoice()));
 
