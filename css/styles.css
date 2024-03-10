@@ -17,7 +17,7 @@ body {
     align-self: center;
     border: 1px solid rgba(10, 10, 10, 0.1);
     margin-top: 1%;
-    width: 55%;
+    width: 60%;
     border-radius: 15px;
     padding: 20px 10px;
     gap:10%;
@@ -72,9 +72,6 @@ body {
     cursor: pointer;
 }
 
-.computer.choices img:focus {
-    background-color:rgba(255, 255, 255, 0.7);
-}
 .choices.player {
     margin-bottom: 5%;
 }
